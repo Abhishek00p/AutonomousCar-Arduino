@@ -16,6 +16,8 @@ Hardware-
 
 software
 
+IP-webcam ( available on playstore)
+Note: I used IP-webcam as camera, You can purchase camera for arduino from the market
 python
 jupyter notebook
 tensorflow for model training [ I used Teachable Machine platform for training ]
@@ -34,3 +36,15 @@ import sys
 import serial
 
 ```
+
+
+## Installation
+##### Clone my git Repo into your desired location
+##### open jupyter notebook 
+##### go to cloned repo folder and open try01 file
+##### open IP-WEBCAM software in mobile and click start Server
+##### change ip address in "cv2.videocapture("newIPAddress/shot.jpg")line in try01 file
+##### Run file in jupyter notebook
+
+### you may need to change Model, Images are present in Imagesforcar folder for reference to train in model. 
+### in label.txt classes for model are present (you can change )
