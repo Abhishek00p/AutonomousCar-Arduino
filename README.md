@@ -5,7 +5,7 @@
 ### An idea of implementing large scale project into small Prototype. It is an IOT based project.
 
 Preview
-[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://github.com/Abhishek00p/AutonomousCar-Arduino/blob/master/modelRunning.mp4?raw=true)
+[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://github.com/Abhishek00p/AutonomousCar-Arduino/blob/master/modelRunning.mp4?raw=false)
 
 ```
 Requirements
