@@ -4,6 +4,9 @@
 
 ### An idea of implementing large scale project into small Prototype. It is an IOT based project.
 
+Preview
+[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://github.com/Abhishek00p/AutonomousCar-Arduino/blob/master/modelRunning.mp4?raw=true)
+
 ```
 Requirements
 
@@ -14,8 +17,6 @@ Hardware-
 4. car chasis ( motor ,wheels,car body)
 5. li-ion rechargable batteries
 
-Preview
-[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://youtu.be/vt5fpE0bzSY)
 
 
 
