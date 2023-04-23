@@ -64,6 +64,7 @@ import serial
 
 
 
+```
 
 /*
 
@@ -87,8 +88,8 @@ import serial
 //#include "NewPing.h"
 
 SoftwareSerial bluetoothSerial(0, 1); // RX, TX
-//#define echopin A2
-//#define trigopin A3
+#define echopin A2
+#define trigopin A3
 
 //initial motors pin
 AF_DCMotor motor1(1, MOTOR12_1KHZ);
@@ -104,8 +105,8 @@ void setup()
   Serial.println("Connected to BT");
   //  Serial.begin(91000);
   //  Serial.println("connected");
-  //  pinMode (trigopin,OUTPUT);
-  //  pinMode(echopin,INPUT);
+    pinMode (trigopin,OUTPUT);
+    pinMode(echopin,INPUT);
 
   motor1.setSpeed(100);
 
@@ -117,11 +118,12 @@ void setup()
 }
 
 void loop() {
-  //  long  dis = data();
-  //  Serial.println(dis);
+    long  dis = data();
   //  delay(5000);
 
-
+if (int(dis)<=9){
+  Stop();
+}else{
 
   if (bluetoothSerial.available() > 0) {
     command = bluetoothSerial.read();
@@ -168,29 +170,30 @@ void loop() {
         break;
     }
   }
+}
 
 }
 
-//long data(){
-//
-//  digitalWrite(trigopin,LOW);
-//  delayMicroseconds(2);
-//  digitalWrite(trigopin,HIGH);
-//  delayMicroseconds(10);
-//  int distance = pulseIn(echopin,HIGH);
-//
-//  return distance*0.034/2;
-//}
+long data(){
+
+  digitalWrite(trigopin,LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigopin,HIGH);
+  delayMicroseconds(10);
+  int distance = pulseIn(echopin,HIGH);
+
+  return distance*0.034/2;
+}
 
 void forward()
 {
-  motor1.setSpeed(140); //Define maximum velocity
+  motor1.setSpeed(170); //Define maximum velocity
   motor1.run(FORWARD);  //rotate the motor clockwise
   motor2.setSpeed(255); //Define maximum velocity
   motor2.run(FORWARD);  //rotate the motor clockwise
   motor3.setSpeed(130); //Define maximum velocity
   motor3.run(FORWARD);  //rotate the motor clockwise
-  motor4.setSpeed(140); //Define maximum velocity
+  motor4.setSpeed(170); //Define maximum velocity
   motor4.run(FORWARD);  //rotate the motor clockwise
   //delay(400);
   //  Stop();
@@ -212,26 +215,26 @@ void back()
 
 void right()
 {
-  motor1.setSpeed(190); //Define maximum velocity
+  motor1.setSpeed(210); //Define maximum velocity
   motor1.run(FORWARD); //rotate the motor anti-clockwise
   motor2.setSpeed(255); //Define maximum velocity
   motor2.run(BACKWARD); //rotate the motor anti-clockwise
   motor3.setSpeed(130); //Define maximum velocity
   motor3.run(FORWARD);  //rotate the motor clockwise
-  motor4.setSpeed(130); //Define maximum velocity
+  motor4.setSpeed(150); //Define maximum velocity
   motor4.run(FORWARD);  //rotate the motor clockwise
   //delay(400);
 }
 
 void left()
 {
-  motor1.setSpeed(130); //Define maximum velocity
+  motor1.setSpeed(150); //Define maximum velocity
   motor1.run(FORWARD);  //rotate the motor clockwise
   motor2.setSpeed(255); //Define maximum velocity
   motor2.run(FORWARD);  //rotate the motor clockwise
   motor3.setSpeed(120); //Define maximum velocity
   motor3.run(BACKWARD); //rotate the motor anti-clockwise
-  motor4.setSpeed(190); //Define maximum velocity
+  motor4.setSpeed(210); //Define maximum velocity
   motor4.run(FORWARD); //rotate the motor anti-clockwise
   //delay(400);
 
@@ -240,28 +243,28 @@ void left()
 void forwardLeft()
 {
   //
-  motor1.setSpeed(90);
+  motor1.setSpeed(120);
   motor1.run(FORWARD);  //rotate the motor clockwise
 
   motor2.run(FORWARD);  //rotate the motor clockwise
-  motor3.setSpeed(90);
+  motor3.setSpeed(130);
   motor3.run(FORWARD);
   //rotate the motor anti-clockwise
 
 
-  motor4.setSpeed(130);
+  motor4.setSpeed(190);
   motor4.run(FORWARD); //rotate the motor anti-clockwise
   //    delay(400);
 }
 void forwardRight() {
   //
-  motor1.setSpeed(130);
+  motor1.setSpeed(190);
   motor1.run(FORWARD);
 
 
   motor3.setSpeed(160);
   motor3.run(FORWARD); //rotate the motor anti-clockwise
-  motor4.setSpeed(90);
+  motor4.setSpeed(120);
   motor4.run(FORWARD); //rotate the motor anti-clockwise
   //    delay(400);
 }
@@ -272,14 +275,14 @@ void backRight() {
   motor1.run(BACKWARD);
   //  motor3.setSpeed(180);
   //  motor3.run(BACKWARD); //rotate the motor anti-clockwise
-  motor4.setSpeed(90);
+  motor4.setSpeed(110);
   motor4.run(BACKWARD); //rotate the motor anti-clockwise
   //    delay(400);
 }
 //
 void backLeft() {
   //
-  motor1.setSpeed(90);
+  motor1.setSpeed(110);
   motor1.run(BACKWARD);
   //  motor3.setSpeed(120);
   //  motor3.run(BACKWARD); //rotate the motor anti-clockwise
@@ -300,3 +303,4 @@ void Stop()
 
 }
 
+```
